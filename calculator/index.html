@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pikachu Calculator</title>
+
+    <style>
+        body {
+            background-color: #FFF176;
+            background-image: url('pikachu.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #212121;
+        }
+
+        .calculator {
+            background-color: #FFEB3B;
+            border: 4px solid #FF5722;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            width: 320px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #display2 {
+            display: none;
+        }
+
+        .calculator h1 {
+            color: #FF5722;
+            text-shadow: 2px 2px #212121;
+            margin-bottom: 20px;
+        }
+
+        .screen {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .screen input {
+            width: 100%;
+            height: 40px;
+            font-size: 1.2rem;
+            text-align: right;
+            margin-bottom: 10px;
+            border: 2px solid #212121;
+            border-radius: 10px;
+            background-color: #FFF9C4;
+            color: #212121;
+            padding: 5px;
+            box-shadow: inset 0 0 10px rgba(255, 235, 59, 0.5);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            width: 100%;
+            height: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(1.05);
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        button.number {
+            background-color: #FFF9C4;
+            color: #212121;
+        }
+
+        button.operator {
+            background-color: #FF5722;
+            color: #fff;
+        }
+
+        button#equals {
+            background-color: #4CAF50;
+            color: #fff;
+            grid-column: span 2;
+        }
+
+        button#clear {
+            background-color: #212121;
+            color: #FFEB3B;
+            grid-column: span 2;
+        }
+    </style>
+
+    <script src="./js/numbers.js"></script>
+    <script src="./js/operator.js"></script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Shawnty's Calculator</h1>
+        <div class="screen">
+            <input type="text" id="display" value="0" readonly>
+            <input type="text" id="display2" readonly style = "display:none;">
+            <input type="text" id="operator" readonly>
+        </div>
+        <div class="buttons">
+            <button type="button" class="number" onclick="seven()">7</button>
+            <button type="button" class="number" onclick="eight()">8</button>
+            <button type="button" class="number" onclick="nine()">9</button>
+            <button type="button" class="operator" onclick="add()">+</button>
+
+            <button type="button" class="number" onclick="four()">4</button>
+            <button type="button" class="number" onclick="five()">5</button>
+            <button type="button" class="number" onclick="six()">6</button>
+            <button type="button" class="operator" onclick="minus()">-</button>
+
+            <button type="button" class="number" onclick="one()">1</button>
+            <button type="button" class="number" onclick="two()">2</button>
+            <button type="button" class="number" onclick="three()">3</button>
+            <button type="button" class="operator" onclick="times()">*</button>
+
+            <button type="button" class="number" onclick="zero()">0</button>
+            <button type="button" class="number" onclick="dot()">.</button>
+            <button type="button" class="operator" onclick="divide()">/</button>
+            <button type="button" id="equals" onclick="equals()">=</button>
+
+            <button type="button" id="clear" onclick="clearAll()">C</button>
+        </div>
+    </div>
+</body>
+</html>
